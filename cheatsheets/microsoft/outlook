@@ -1,0 +1,25 @@
+---
+syntax: powershell
+tags: [ outlook, calendar, rules, email ]
+---
+
+# Connect to Exchange Online:
+& "C:\Program Files\Mozilla Firefox\firefox.exe" -private-window https://microsoft.com/devicelogin; Connect-ExchangeOnline -Device
+
+#In Exchange Online, retrieve mailbox permission over a user:
+Get-MailboxPermission -Identity Bob@contoso.com
+
+#In Exchange Online, retreive calendar permission over a user:
+Get-MailboxFolderPermission -Identity Bob@contoso.com:\Calendar
+
+#In Exchange Online, this example adds John as a calendar editor to Bob's outlook calendar:
+Add-MailboxFolderPermission -Identity Bob@contoso.com:\Calendar -User John@contoso.com -AccessRights Editor
+
+#In Exchange Online, this example adds John as a calendar editor to Bob's outlook calendar with access to private items:
+Add-MailboxFolderPermission -Identity Bob@contoso.com:\Calendar -User John@contoso.com -AccessRights Editor -SharingPermissionFlags CanViewPrivateItems
+
+#In Exchange Online, this example adds John as a calendar delegate to Bob's outlook calendar:
+Add-MailboxFolderPermission -Identity Bob@contoso.com:\Calendar -User John@contoso.com -AccessRights Editor -SharingPermissionFlags Delegate
+
+#In Exchange Online, this example adds John as a calendar delegate to Bob's outlook calendar with access to private items:
+Add-MailboxFolderPermission -Identity Bob@contoso.com:\Calendar -User John@contoso.com -AccessRights Editor -SharingPermissionFlags Delegate,CanViewPrivateItems

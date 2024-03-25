@@ -1,0 +1,11 @@
+---
+syntax: powershell
+tags: [ reboot, safemode, advanced, restart, bcdedit ]
+---
+
+--CMD--
+# Set the default boot option to be safemode:
+bcdedit /set {default} safeboot network
+
+# Set the default boot option to be normal:
+bcdedit /deletevalue safeboot

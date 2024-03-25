@@ -1,0 +1,12 @@
+---
+syntax: powershell
+tags: [ event, eventvwr, logs, log, event log, events]
+---
+
+--Powershell 5.x--
+# Check application events for application with matching message:
+Get-EventLog -Logname Application -Message *Outlook*
+
+--Powershell 7.x--
+# Check application events for application with matching message:
+Get-WinEvent -LogName Application | Where-Object {$_.Message -like "*Outlook*"}

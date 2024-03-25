@@ -1,0 +1,13 @@
+---
+syntax: sh
+tags: [ diag, fortigate, forticlient, fortios, diagnose, sniffer, sniff ]
+---
+
+# Sniff fortigate interface for bidirectional traffic with a specific host:
+diag sniffer packet <interface> <'host filter'> <verbose> <count> <a> <l>
+
+	Example:
+	diag sniffer packet any 'host 192.168.1.100' 6 0 a
+
+# Some other shit just to test formatting:
+diag sniffer packet <interface> <'host filter'> <verbose> <count> a

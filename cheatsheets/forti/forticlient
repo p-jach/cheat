@@ -1,0 +1,19 @@
+---
+syntax: powershell
+tags: [ forticlient, vpn, configuration ]
+---
+
+# Check for ForticlientVPN configuration:
+Get-ItemProperty -Path "HKLM:\SOFTWARE\Fortinet\FortiClient\Sslvpn\Tunnels\<NAME>"
+
+# Change IP and port in registry for forticlient:
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Fortinet\FortiClient\Sslvpn\Tunnels\<NAME>" -Name "Server" -Value "10.0.0.1:443"
+
+# Change multiple IP's and ports in registry for forticlient:
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Fortinet\FortiClient\Sslvpn\Tunnels\<NAME>" -Name "Server" -Value "10.0.0.1:443;10.0.0.2:443"
+
+# Change domain-name and port in registry for forticlient:
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Fortinet\FortiClient\Sslvpn\Tunnels\<NAME>" -Name "Server" -Value "https://some.domain.com:443"
+
+# Disable invaid cert warning:
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Fortinet\FortiClient\Sslvpn" -Name "no_warn_invalid_cert" -Value "1"

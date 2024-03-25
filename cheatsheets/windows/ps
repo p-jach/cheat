@@ -1,0 +1,19 @@
+---
+syntax: powershell
+tags: [frozen, pid, ps, orphan, kill, task, taskmgr, freeze]
+---
+
+# Search for a running process with a matching process name:
+Get-Process | Where-Object ProcessName -Like "*Adobe*"
+
+# Search for a running process with a matching process name and output as a gridview(gui):
+Get-Process | Where-Object ProcessName -Like "*Adobe*" | Out-GridView
+
+# Search for a frozen application by process name and kill it with force:
+Get-Process -Name "Adobe" | Stop-Process -Force
+
+# Stop a process by pid:
+Stop-Process -Id 3952
+
+# Stop all instances of a process by name:
+Stop-Process -Name "Adobe"

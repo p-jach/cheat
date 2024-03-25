@@ -1,0 +1,16 @@
+---
+syntax: powershell
+tags: [ forwarding, forward, rules, email ]
+---
+
+# Connect to Exchange Online:
+& "C:\Program Files\Mozilla Firefox\firefox.exe" -private-window https://microsoft.com/devicelogin; Connect-ExchangeOnline -Device
+
+# Export currently enabled email forwarding rules:
+& "C:\Program Files\Mozilla Firefox\firefox.exe" -private-window https://microsoft.com/devicelogin; Connect-ExchangeOnline -Device
+$exportPath = "C:\temp\forwarding_addresses.csv"
+$mailboxes = Get-Mailbox -ResultSize Unlimited | Where-Object { $_.ForwardingAddress -ne $null -or $_.ForwardingSmtpAddress -ne $null }
+$mailboxProperties = $mailboxes | select DisplayName, UserPrincipalName, ForwardingAddress, ForwardingSmtpAddress, DeliverToMailboxAndForward
+$mailboxProperties | Out-GridView -Title "Mailboxes with Forwarding Addresses"
+$mailboxProperties | Export-Csv -Path $exportPath -NoTypeInformation -Encoding UTF8
+Write-Host "Mailbox data has been exported to $exportPath"

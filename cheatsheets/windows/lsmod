@@ -1,0 +1,15 @@
+---
+syntax: powershell
+tags: [ driver, drivers, lsmod, modinfo, software, program, store]
+---
+
+--Powershell 5.x--
+# Search for installed software/driver/program with a matching name:
+Get-WmiObject -Class Win32_Product | Select-Object Name, Version | Where-Object {$_.Name -like "*Adobe*"}
+
+# Search for software/program installed with appx:
+Get-AppxPackage | Select-Object Name, Version | Where-Object {$_.Name -like "*NAME*"}
+
+--Powershell 7.x--
+# Search for an installed driver with a matching name:
+Get-CimInstance -Class Win32_Product | Select-Object Name, Version | Where-Object {$_.Name -like "*Adobe*"}

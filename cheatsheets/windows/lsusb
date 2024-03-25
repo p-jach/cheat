@@ -1,0 +1,7 @@
+---
+syntax: powershell
+tags: [ usb, device, ]
+---
+
+# Search for a present USB device with a matching Hardware ID: 
+Get-PnpDevice -PresentOnly | Where-Object InstanceId -like '*USB\VID_05F3&PID_00FF*'

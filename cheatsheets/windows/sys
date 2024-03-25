@@ -1,0 +1,12 @@
+---
+syntax: powershell
+tags: [system, sys, stat, stats]
+---
+
+--Powershell 5.x--
+# Get system uptime:
+Get-CimInstance -ClassName Win32_OperatingSystem | Select LastBootUpTime
+
+--Powershell 7.x--
+# Get system uptime: 
+Get-Uptime

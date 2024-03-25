@@ -1,0 +1,11 @@
+---
+syntax: powershell
+tags: [ tcp, ip, network, reset, stack, winsock, netsh, stats, net ]
+---
+
+--CMD--
+# Reset entire networking stack:
+netsh winsock reset
+
+# Display ethernet and protocol network stats
+netstat -e -s

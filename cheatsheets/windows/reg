@@ -1,0 +1,7 @@
+---
+syntax: powershell
+tags: [ vpn, registry, reg, forticlient, forti, key ]
+---
+
+# Get systen information from registry:
+Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\"
