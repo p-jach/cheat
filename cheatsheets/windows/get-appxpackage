@@ -1,0 +1,10 @@
+---
+syntax: powershell
+tags: [ get-appxpackage, windows]
+---
+
+# List all appx installed packages
+Get-AppxPackage
+
+# Search for appx installed packages using wildcard name:
+Get-AppxPackage | Where-Object {$_.Name -like "*NAME*"}

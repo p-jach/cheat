@@ -1,0 +1,7 @@
+---
+syntax: powershell
+tags: [ get-eventlog, windows]
+---
+
+# Search for application events with wildcard message:
+Get-EventLog -LogName Application -Message *Outlook*

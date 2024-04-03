@@ -67,17 +67,17 @@ cheatpaths:
   # If you have personalized cheatsheets, list them last. They will take
   # precedence over the more global cheatsheets.
   - name: windows
-    path: .\cheatsheets\windows
+    path: ~\AppData\Roaming\cheat\cheatsheets\windows
     tags: [ windows ]
     readonly: false
     
   - name: forti
-    path: .\cheatsheets\forti
+    path: ~\AppData\Roaming\cheat\cheatsheets\forti
     tags: [ fortinet ]
     readonly: false
     
   - name: microsoft
-    path: .\cheatsheets\microsoft
+    path: ~\AppData\Roaming\cheat\cheatsheets\microsoft
     tags: [ microsoft ]
     readonly: false
 

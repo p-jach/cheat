@@ -1,0 +1,10 @@
+---
+syntax: powershell
+tags: [get-package, windows]
+---
+
+# List all packages installed, sorted by name:
+Get-Package | Sort-Object -Property Name
+
+# Search for installed package with wildcard name, show full package information:
+Get-Package | Where-Object Name -Like "*<Name>*" | Format-List

@@ -1,0 +1,7 @@
+---
+syntax: powershell
+tags: [ get-winevent, windows]
+---
+
+# Search for application events with wildcard message:
+Get-WinEvent -LogName Application | Where-Object {$_.Message -like "*Outlook*"}

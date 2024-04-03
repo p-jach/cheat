@@ -1,0 +1,16 @@
+---
+syntax: powershell
+tags: [ get-ciminstance, windows ]
+---
+
+# Get system uptime:
+Get-CimInstance -ClassName Win32_OperatingSystem | Select LastBootUpTime
+
+# Search for win32 installed packages using wildcard name:
+Get-CimInstance -Class Win32_Product | Where-Object {$_.Name -like "*Adobe*"}
+
+# Search for win32 installed driver using wildcard Device ID:
+Get-CimInstance -Class Win32_PnPSignedDriver | Where-Object {$_.DeviceID -like "*Brother MFC-9130CW*"}
+
+# Search for win32 installed driver using wildcard Hardware ID:
+Get-CimInstance -Class Win32_PnPSignedDriver | Where-Object {$_.HardwareID -like "*USB\VID_05F3&PID_00FF*"}

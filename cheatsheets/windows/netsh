@@ -1,0 +1,7 @@
+---
+syntax: powershell
+tags: [ netsh, windows ]
+---
+
+# Reset entire networking stack
+netsh winsock reset

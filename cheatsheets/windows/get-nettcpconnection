@@ -1,0 +1,10 @@
+---
+syntax: powershell
+tags: [ get-nettcpconnection, windows ]
+---
+
+# Get current listening and established connections:
+Get-NetTCPConnection -State Listen,Established
+
+# Get current connections by remote port:
+Get-NetTCPConnection -RemotePort 443

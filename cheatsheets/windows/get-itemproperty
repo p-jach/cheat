@@ -1,6 +1,6 @@
 ---
 syntax: powershell
-tags: [ vpn, registry, reg, forticlient, forti, key ]
+tags: [ get-itemproperty, windows ]
 ---
 
 # Get systen information from registry:

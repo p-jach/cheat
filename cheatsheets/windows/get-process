@@ -1,0 +1,13 @@
+---
+syntax: powershell
+tags: [get-process, windows]
+---
+
+# Search for a running process using wildcard name:
+Get-Process | Where-Object ProcessName -Like "*<Name>*"
+
+# Search for a running process using wildcard name and output as a gridview(GUI):
+Get-Process | Where-Object ProcessName -Like "*<Name>*" | Out-GridView
+
+# Search for a frozen application by process name and kill it with force:
+Get-Process -Name "<Name>" | Stop-Process -Force

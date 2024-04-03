@@ -1,0 +1,10 @@
+---
+syntax: powershell
+tags: [ netstat, windows ]
+---
+
+# Display active connections with application name
+netstat -anb
+
+# Display ethernet and protocol network stats
+netstat -es

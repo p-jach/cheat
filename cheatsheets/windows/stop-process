@@ -1,0 +1,10 @@
+---
+syntax: powershell
+tags: [stop-process, windows]
+---
+
+# Stop a process by pid:
+Stop-Process -Id <PID>
+
+# Stop all instances of a process by name:
+Stop-Process -Name "<Name>"

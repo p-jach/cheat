@@ -1,0 +1,7 @@
+---
+syntax: powershell
+tags: [get-uptime, windows]
+---
+
+# Get system uptime: 
+Get-Uptime

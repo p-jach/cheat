@@ -1,0 +1,10 @@
+---
+syntax: powershell
+tags: [ bcdedit, windows ]
+---
+
+# Set the default boot option to be safemode with networking:
+bcdedit /set {default} safeboot network
+
+# Delete safemode default boot option:
+bcdedit /deletevalue safeboot
