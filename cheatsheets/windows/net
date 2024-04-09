@@ -1,0 +1,22 @@
+---
+syntax: powershell
+tags: [ net, windows ]
+---
+
+#List accounts added on system:
+net users
+
+#View user account information:
+net user <USERNAME>
+
+#Add a local user account with password: 
+net user /add <USERNAME> <PASSWORD>
+
+#Set expiration on the user account:
+net user <USERNAME> /expires:04/12/2024
+
+#Disable user password change:
+net user <USERNAME> /passwordchg:no
+
+#Add the user to the local administrators group:
+net localgroup administrators <USERNAME> /add
