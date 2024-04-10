@@ -2,7 +2,7 @@ Install
 =============
 
 `winget install GoLang.Go` \
-`winget search Git.Git` \
+`winget install Git.Git` \
 `go install github.com/cheat/cheat/cmd/cheat@latest` \
 `git clone https://github.com/p-jach/cheat.git`
 
