@@ -1,0 +1,22 @@
+---
+syntax: powershell
+tags: [ ipconfig, windows ]
+---
+
+# View basic ipconfig
+ipconfig
+
+# View full ipconfig:
+ipconfig /all
+
+# Flush DNS
+ipconfig /flushdns
+
+# Release DHCP IP address:
+ipconfig /release
+
+# Renew DHCP IP address:
+ipconfig /renew
+
+# Release/Renew DHCP address:
+ipconfig /release && ipconfig /renew

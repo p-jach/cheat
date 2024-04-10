@@ -3,5 +3,8 @@ syntax: powershell
 tags: [ netsh, windows ]
 ---
 
-# Reset entire networking stack
+# Reset entire networking stack:
 netsh winsock reset
+
+# Reset TCP/IP:
+netsh int ip reset
