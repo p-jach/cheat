@@ -1,4 +1,4 @@
-Install/Setup
+Install
 =============
 
 `winget install GoLang.Go` \
