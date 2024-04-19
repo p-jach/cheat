@@ -1,5 +1,5 @@
 Install
-=============
+=======
 
 `winget install GoLang.Go` \
 `winget install Git.Git` \

@@ -12,6 +12,15 @@ net user <USERNAME>
 #Add a local user account with password: 
 net user /add <USERNAME> <PASSWORD>
 
+#Delete a local user:
+net user /delete <USERNAME>
+
+#Activate user account:
+net user <USERNAME> /active:yes
+
+#Disable user account:
+net user <USERNAME> /active:no
+
 #Set expiration on the user account:
 net user <USERNAME> /expires:04/12/2024
 
