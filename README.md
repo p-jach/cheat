@@ -1,12 +1,12 @@
 Install
 =======
-#Install Go
+#Install Go\
 `winget install GoLang.Go` \
 
-#Install Git
+#Install Git\
 `winget install Git.Git` \
 
-#Install Cheat package
+#Install Cheat package \
 `go install github.com/cheat/cheat/cmd/cheat@latest` \
 
 #Clone cheatsheets and config
