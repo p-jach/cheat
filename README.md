@@ -20,7 +20,7 @@ List all cheatsheets\
 View "net" cheatsheet\
 `cheat net`
 
-List all cheatsheets containing "net"\
+List all cheatsheets containing string "net"\
 `cheat -s net`
 
 Links
