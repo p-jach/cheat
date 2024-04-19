@@ -1,26 +1,26 @@
 Install
 =======
 #Install Go\
-`winget install GoLang.Go` \
+`winget install GoLang.Go`
 
 #Install Git\
-`winget install Git.Git` \
+`winget install Git.Git`
 
-#Install Cheat package \
-`go install github.com/cheat/cheat/cmd/cheat@latest` \
+#Install Cheat package\
+`go install github.com/cheat/cheat/cmd/cheat@latest`
 
-#Clone cheatsheets and config
+#Clone cheatsheets and config\
 `cd $env:APPDATA; git clone https://github.com/p-jach/cheat.git`
 
 Usage
 -----
-#List all cheatsheets
-`cheat -l` \
+#List all cheatsheets\
+`cheat -l`
 
-#View "net" cheatsheet
+#View "net" cheatsheet\
 `cheat net` \
 
-#List all cheatsheets containing "net"
+#List all cheatsheets containing "net"\
 `cheat -s net`
 
 Links
