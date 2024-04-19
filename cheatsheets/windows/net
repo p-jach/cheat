@@ -29,3 +29,6 @@ net user <USERNAME> /passwordchg:no
 
 #Add the user to the local administrators group:
 net localgroup administrators <USERNAME> /add
+
+#Delete the user from the local administrators group:
+net localgroup administrators <USERNAME> /delete
