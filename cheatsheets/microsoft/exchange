@@ -14,3 +14,15 @@ $mailboxProperties = $mailboxes | select DisplayName, UserPrincipalName, Forward
 $mailboxProperties | Out-GridView -Title "Mailboxes with Forwarding Addresses"
 $mailboxProperties | Export-Csv -Path $exportPath -NoTypeInformation -Encoding UTF8
 Write-Host "Mailbox data has been exported to $exportPath"
+
+# Enable archiving on user account:
+Enable-Mailbox -Identity <user mailbox> -Archive
+
+# Start full crawl on user account:
+Start-ManagedFolderAssistant -Identity <user mailbox> -FullCrawl
+
+# Retrieve statistics for user mailbox:
+Get-MailboxStatistics -Identity <user mailbox> | fl ItemCount,DeletedItemCount,TotalItemSize,TotalDeletedItemSize, ELC*, Archivestatus
+
+# Retrieve statistics for user's archive:
+Get-MailboxStatistics -Identity <user mailbox> -Archive | fl ItemCount,DeletedItemCount,TotalItemSize,TotalDeletedItemSize, ELC*, Archivestatus
