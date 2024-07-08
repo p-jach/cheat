@@ -2,3 +2,12 @@
 syntax: powershell
 tags: [ git ]
 ---
+
+# Track recently added files
+git add .
+
+# Commit recently added files
+git commit -m "Commit comment here"
+
+# Push changes from origin to main
+git push origin main
