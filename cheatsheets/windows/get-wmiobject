@@ -11,3 +11,6 @@ Get-WmiObject -Class Win32_PnPSignedDriver | Where-Object {$_.DeviceID -like "*B
 
 # Search for win32 installed driver using wildcard Hardware ID:
 Get-WmiObject -Class Win32_PnPSignedDriver | Where-Object {$_.HardwareID -like "*USB\VID_05F3&PID_00FF*"}
+
+# Search for recently installed updates, sorted by date
+Get-WmiObject -Class win32_quickfixengineering | Sort-Object -Property InstalledOn
