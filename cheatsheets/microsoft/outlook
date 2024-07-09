@@ -9,6 +9,9 @@ tags: [ outlook, calendar, rules, email ]
 #In Exchange Online, retrieve mailbox permission over a user:
 Get-MailboxPermission -Identity Bob@contoso.com
 
+#In Exchange Online, this example gives John full access over Bob's mailbox without auto-mapping:
+Add-MailboxFolderPermission -Identity Bob@contoso.com -User John@contoso.com -AccessRights FullAccess -AutoMapping $false 
+
 #In Exchange Online, retreive calendar permission over a user:
 Get-MailboxFolderPermission -Identity Bob@contoso.com:\Calendar
 
