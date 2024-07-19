@@ -12,25 +12,25 @@ Enable-Mailbox -Identity <user mailbox> -Archive
 # Start full crawl on user account:
 Start-ManagedFolderAssistant -Identity <user mailbox> -FullCrawl
 
-#In Exchange Online, retrieve mailbox permission over a user:
+# In Exchange Online, retrieve mailbox permission over a user:
 Get-MailboxPermission -Identity Bob@contoso.com
 
-#In Exchange Online, retreive calendar permission over a user:
+# In Exchange Online, retreive calendar permission over a user:
 Get-MailboxFolderPermission -Identity Bob@contoso.com:\Calendar
 
 # Give John full mailbox access to Bob's mailbox - automapping disabled:
 Add-MailboxPermission -Identity Bob@contoso.com -User John@contoso.com -AccessRights FullAccess -AutoMapping:$false
 
-#In Exchange Online, this example adds John as a calendar editor to Bob's outlook calendar:
+# In Exchange Online, this example adds John as a calendar editor to Bob's outlook calendar:
 Add-MailboxFolderPermission -Identity Bob@contoso.com:\Calendar -User John@contoso.com -AccessRights Editor
 
-#In Exchange Online, this example adds John as a calendar editor to Bob's outlook calendar with access to private items:
+# In Exchange Online, this example adds John as a calendar editor to Bob's outlook calendar with access to private items:
 Add-MailboxFolderPermission -Identity Bob@contoso.com:\Calendar -User John@contoso.com -AccessRights Editor -SharingPermissionFlags CanViewPrivateItems
 
-#In Exchange Online, this example adds John as a calendar delegate to Bob's outlook calendar:
+# In Exchange Online, this example adds John as a calendar delegate to Bob's outlook calendar:
 Add-MailboxFolderPermission -Identity Bob@contoso.com:\Calendar -User John@contoso.com -AccessRights Editor -SharingPermissionFlags Delegate
 
-#In Exchange Online, this example adds John as a calendar delegate to Bob's outlook calendar with access to private items:
+# In Exchange Online, this example adds John as a calendar delegate to Bob's outlook calendar with access to private items:
 Add-MailboxFolderPermission -Identity Bob@contoso.com:\Calendar -User John@contoso.com -AccessRights Editor -SharingPermissionFlags Delegate,CanViewPrivateItems
 
 # Retrieve statistics for user mailbox:
