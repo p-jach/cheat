@@ -1,19 +1,10 @@
 ---
 syntax: powershell
-tags: [ forwarding, forward, rules, email ]
+tags: [ exchange, outlook, forwarding, forward, rules, email ]
 ---
 
 # Connect to Exchange Online:
-& "C:\Program Files\Mozilla Firefox\firefox.exe" -private-window https://microsoft.com/devicelogin; Connect-ExchangeOnline -Device
-
-# Export currently enabled email forwarding rules:
-& "C:\Program Files\Mozilla Firefox\firefox.exe" -private-window https://microsoft.com/devicelogin; Connect-ExchangeOnline -Device
-$exportPath = "C:\temp\forwarding_addresses.csv"
-$mailboxes = Get-Mailbox -ResultSize Unlimited | Where-Object { $_.ForwardingAddress -ne $null -or $_.ForwardingSmtpAddress -ne $null }
-$mailboxProperties = $mailboxes | select DisplayName, UserPrincipalName, ForwardingAddress, ForwardingSmtpAddress, DeliverToMailboxAndForward
-$mailboxProperties | Out-GridView -Title "Mailboxes with Forwarding Addresses"
-$mailboxProperties | Export-Csv -Path $exportPath -NoTypeInformation -Encoding UTF8
-Write-Host "Mailbox data has been exported to $exportPath"
+& firefox.exe -private-window https://microsoft.com/devicelogin; Connect-ExchangeOnline -Device
 
 # Enable archiving on user account:
 Enable-Mailbox -Identity <user mailbox> -Archive
@@ -21,8 +12,49 @@ Enable-Mailbox -Identity <user mailbox> -Archive
 # Start full crawl on user account:
 Start-ManagedFolderAssistant -Identity <user mailbox> -FullCrawl
 
+#In Exchange Online, retrieve mailbox permission over a user:
+Get-MailboxPermission -Identity Bob@contoso.com
+
+#In Exchange Online, retreive calendar permission over a user:
+Get-MailboxFolderPermission -Identity Bob@contoso.com:\Calendar
+
+# Give John full mailbox access to Bob's mailbox - automapping disabled:
+Add-MailboxPermission -Identity Bob@contoso.com -User John@contoso.com -AccessRights FullAccess -AutoMapping:$false
+
+#In Exchange Online, this example adds John as a calendar editor to Bob's outlook calendar:
+Add-MailboxFolderPermission -Identity Bob@contoso.com:\Calendar -User John@contoso.com -AccessRights Editor
+
+#In Exchange Online, this example adds John as a calendar editor to Bob's outlook calendar with access to private items:
+Add-MailboxFolderPermission -Identity Bob@contoso.com:\Calendar -User John@contoso.com -AccessRights Editor -SharingPermissionFlags CanViewPrivateItems
+
+#In Exchange Online, this example adds John as a calendar delegate to Bob's outlook calendar:
+Add-MailboxFolderPermission -Identity Bob@contoso.com:\Calendar -User John@contoso.com -AccessRights Editor -SharingPermissionFlags Delegate
+
+#In Exchange Online, this example adds John as a calendar delegate to Bob's outlook calendar with access to private items:
+Add-MailboxFolderPermission -Identity Bob@contoso.com:\Calendar -User John@contoso.com -AccessRights Editor -SharingPermissionFlags Delegate,CanViewPrivateItems
+
 # Retrieve statistics for user mailbox:
 Get-MailboxStatistics -Identity <user mailbox> | fl ItemCount,DeletedItemCount,TotalItemSize,TotalDeletedItemSize, ELC*, Archivestatus
 
 # Retrieve statistics for user's archive:
 Get-MailboxStatistics -Identity <user mailbox> -Archive | fl ItemCount,DeletedItemCount,TotalItemSize,TotalDeletedItemSize, ELC*, Archivestatus
+
+# Get all inbox rules
+Get-InboxRule -Mailbox user@domain.com -IncludeHidden
+
+# Get all inbox rules - including all properties
+Get-InboxRule -Mailbox user@domain.com -includehidden | Select-object *
+
+# Remove a single inbox rule - skip confirm
+Remove-InboxRule -Mailbox user@domain.com -Identity 1125502695398965249 -Confirm:$false
+
+# Removal all inbox rules - including hidden
+Get-InboxRule -Mailbox "user@domain.com" -includehidden | Remove-InboxRule
+
+# Export currently enabled email forwarding rules:
+$exportPath = "C:\temp\forwarding_addresses.csv"
+$mailboxes = Get-Mailbox -ResultSize Unlimited | Where-Object { $_.ForwardingAddress -ne $null -or $_.ForwardingSmtpAddress -ne $null }
+$mailboxProperties = $mailboxes | select DisplayName, UserPrincipalName, ForwardingAddress, ForwardingSmtpAddress, DeliverToMailboxAndForward
+$mailboxProperties | Out-GridView -Title "Mailboxes with Forwarding Addresses"
+$mailboxProperties | Export-Csv -Path $exportPath -NoTypeInformation -Encoding UTF8
+Write-Host "Mailbox data has been exported to $exportPath"
