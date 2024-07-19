@@ -1,0 +1,7 @@
+---
+syntax: powershell
+tags: [ Set-SmbClientConfiguration, windows ]
+---
+
+# Enable insecure SMB connection on client
+Set-SmbClientConfiguration -EnableInsecureGuestLogons $true -Force

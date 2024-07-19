@@ -1,0 +1,10 @@
+---
+syntax: CMD
+tags: [ w32tm, windows ]
+---
+
+# Update NTP configuration to use both pool.ntp.org and domain controller:
+w32tm /config /update /manualpeerlist:"pool.ntp.org,0x8" /syncfromflags:MANUAL,DOMHIER
+
+# Resync with NTP servers
+w32tm /resync
