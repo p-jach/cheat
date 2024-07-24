@@ -14,3 +14,6 @@ Get-WmiObject -Class Win32_PnPSignedDriver | Where-Object {$_.HardwareID -like "
 
 # Search for recently installed updates, sorted by date
 Get-WmiObject -Class win32_quickfixengineering | Sort-Object -Property InstalledOn
+
+# Retrieve SID of all users on machine
+Get-WmiObject win32_useraccount
