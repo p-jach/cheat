@@ -1,0 +1,7 @@
+---
+syntax: powershell
+tags: [ Reset-LapsPassword, azure ]
+---
+
+# Rotate the Windows LAPS password 
+Reset-LapsPassword
