@@ -1,0 +1,7 @@
+---
+syntax: CMD
+tags: [dsregcmd, windows]
+---
+
+# Check if machine is azure, enterprise, or domain joined
+dsregcmd /status
