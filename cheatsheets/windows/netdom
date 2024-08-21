@@ -1,0 +1,7 @@
+---
+syntax: CMD
+tags: [ netdom, windows ]
+---
+
+# View FSMO roles with netdom:
+netdom query fsmo
