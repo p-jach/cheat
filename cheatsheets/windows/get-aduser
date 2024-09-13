@@ -1,0 +1,16 @@
+---
+syntax: powershell
+tags: [get-aduser, windows, AD]
+---
+
+# Search for AD user: 
+Get-ADUser -Filter 'Name -like "*Username*"'
+
+# Retrieve SamAccountName of an AD user matching a filter:
+Get-ADUser -Filter 'Name -like "*Username*"' | select Name, SamAccountName
+
+# Retrieve all properties of AD user with SamAccountName:
+Get-ADUser -Identity SamAccountName -Properties *
+
+# Check if AD user account is enabled:
+Get-ADUser -Identity SamAccountName -Properties * | select enabled
