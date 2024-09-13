@@ -1,0 +1,7 @@
+---
+syntax: powershell
+tags: [disable-adaccount, windows, AD]
+---
+
+# Disable AD user: 
+Disable-ADAccount -Identity SamAccountName
