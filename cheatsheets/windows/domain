@@ -1,0 +1,16 @@
+---
+syntax: powershell
+tags: [ ad, domain ]
+---
+
+## Check if local machine has secure channel with domain
+Test-ComputerSecureChannel
+
+## Check if local machine has secure channel with specific domain server
+Test-ComputerSecureChannel -Server "DCName.fabrikam.com"
+
+## Repair secure channel with domain
+Test-ComputerSecureChannel -Repair
+
+## Reset password for local computer against specific domain controller
+Reset-ComputerMachinePassword -Server "DC01" -Credential Domain01\Admin01

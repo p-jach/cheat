@@ -1,0 +1,7 @@
+---
+syntax: powershell
+tags: [ dism, windows ]
+---
+
+## Restore health using DISM
+DISM /Online /Cleanup-Image /RestoreHealth

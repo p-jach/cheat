@@ -12,6 +12,9 @@ Enable-Mailbox -Identity <user mailbox> -Archive
 # Start full crawl on user account:
 Start-ManagedFolderAssistant -Identity <user mailbox> -FullCrawl
 
+# View all mailboxes a user has fullaccess to (delegate)
+Get-Mailbox -ResultSize Unlimited | Get-MailboxPermission -User john@contoso.com | Where-Object { $_.AccessRights -like "*FullAccess*" } | Format-List
+
 # In Exchange Online, retrieve mailbox permission over a user:
 Get-MailboxPermission -Identity Bob@contoso.com
 

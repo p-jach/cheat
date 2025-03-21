@@ -1,0 +1,7 @@
+---
+syntax: powershell
+tags: [ sfc, windows ]
+---
+
+## Restore corrupted filesystem using sfc
+sfc /scannow
